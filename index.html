@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botify AI - System Documentation</title>
+    <!-- Import Mermaid.js to render UML diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #2563eb;
+            --text: #334155;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+
+        /* Export Button Styling */
+        .export-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+
+        .export-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Typography */
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-top: 50px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #e11d48;
+        }
+
+        pre {
+            background: var(--primary);
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #f8fafc;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Diagram Containers */
+        .diagram-container {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Meta Info */
+        .meta {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+
+        /* Page Breaks for PDF */
+        .page-break {
+            page-break-before: always;
+        }
+
+        /* Print Settings (Hides button, removes padding for clean PDF) */
+        @media print {
+            body {
+                padding: 0;
+                max-width: 100%;
+            }
+            .export-btn {
+                display: none !important;
+            }
+            .page-break {
+                margin-top: 0;
+            }
+            .diagram-container {
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="export-btn" onclick="window.print()">Export to PDF</button>
+
+    <h1>System Documentation: Botify AI Website</h1>
+    <div class="meta">
+        <strong>Version:</strong> 1.0 | <strong>Developer:</strong> Ali Husnain | <strong>Date:</strong> October 2023 | <strong>Stack:</strong> HTML5, CSS3, Vanilla JS
+    </div>
+
+    <h2>1. Introduction</h2>
+    <h3>1.1 Project Overview</h3>
+    <p>Botify AI is a multi-page, responsive static website designed to showcase and provide a simulated experience of AI Chatbot services for businesses. The project focuses on clean UI/UX design, frontend interactivity, and modern web standards without relying on external frameworks or backend servers.</p>
+
+    <h3>1.2 Purpose</h3>
+    <p>The primary purpose of this system is to act as a digital portfolio and business landing page for AI chatbot solutions. It demonstrates frontend development capabilities, including DOM manipulation, event handling, and responsive design.</p>
+
+    <h3>1.3 Scope</h3>
+    <ul>
+        <li><strong>In Scope:</strong> 6 fully linked HTML pages, responsive CSS layout, interactive chatbot simulation, frontend form validation, UI animations.</li>
+        <li><strong>Out of Scope:</strong> Backend database integration, real Natural Language Processing (NLP) API connections, user authentication, actual email sending.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>2. System Architecture</h2>
+    <p>The project follows a standard <strong>Separation of Concerns (SoC)</strong> architecture typical of modern frontend development.</p>
+    <ul>
+        <li><strong>Presentation Layer (HTML):</strong> Semantic markup structuring the UI into reusable components (Navbar, Footer, Cards).</li>
+        <li><strong>Styling Layer (CSS):</strong> CSS Custom Properties (Variables) for theming, Flexbox/Grid for layout algorithms.</li>
+        <li><strong>Logic Layer (JavaScript):</strong> Modular Vanilla JS handling DOM events, state changes, and algorithmic logic (chatbot responses).</li>
+    </ul>
+    
+    <h3>2.1 Directory Structure</h3>
+    <pre>
+project/
+├── index.html          # Home / Landing Page
+├── about.html          # Developer Profile & Mission
+├── services.html       # Service Offerings
+├── demo.html           # Interactive Chatbot UI
+├── pricing.html        # Pricing Plans
+├── contact.html        # Contact Form
+├── css/
+│   └── style.css       # Global stylesheet & design system
+├── js/
+│   └── script.js       # Global interactivity & logic
+└── images/             # (Reserved for future assets)
+    </pre>
+
+    <div class="page-break"></div>
+
+    <h2>3. Component Design (Class Diagram)</h2>
+    <p>Since this is a Vanilla JavaScript application without traditional Object-Oriented backend classes, the system is modeled conceptually based on <strong>Controller Modules</strong> and <strong>DOM Entities</strong>. The <code>UIManager</code> handles generic view updates, while the <code>ChatbotEngine</code> and <code>FormHandler</code> encapsulate specific business logic.</p>
+
+    <div class="diagram-container">
+        <div class="mermaid">
+classDiagram
+    class UIManager {
+        -HTMLElement hamburger
+        -HTMLElement navLinks
+        +initMobileMenu() void
+        +toggleMenu() void
+        +closeMenu() void
+    }
+
+    class ChatbotEngine {
+        -HTMLElement chatInput
+        -HTMLElement sendBtn
+        -HTMLElement chatMessages
+        +handleSendEvent() void
+        -appendMessage(sender: String, text: String) void
+        -evaluateInput(text: String) String
+    }
+
+    class FormHandler {
+        -HTMLElement contactForm
+        +handleSubmission(event: Event) void
+        -validateFields() boolean
+        -resetForm() void
+    }
+
+    class MessageEntity {
+        +String sender
+        +String content
+        +display() void
+    }
+
+    UIManager --> ChatbotEngine : triggers init
+    UIManager --> FormHandler : triggers init
+    ChatbotEngine --> MessageEntity : creates
+        </div>
+    </div>
+
+    <h3>Class Descriptions:</h3>
+    <ul>
+        <li><strong>UIManager:</strong> Controls global UI states. Listens for clicks on the hamburger element to toggle the mobile menu.</li>
+        <li><strong>ChatbotEngine:</strong> Manages the state of the demo chat. Listens to 'click' and 'keypress' events. Instantiates <code>MessageEntity</code> concepts by appending divs to the DOM based on string-matching logic.</li>
+        <li><strong>FormHandler:</strong> Intercepts the default HTML form submission, checks for empty strings, triggers browser alerts, and resets the DOM state if successful.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>4. Process Flow (Activity Diagrams)</h2>
+
+    <h3>4.1 Chatbot Interaction Flow</h3>
+    <p>This diagram illustrates the logic executed when a user interacts with the demo chatbot on <code>demo.html</code>.</p>
+    <div class="diagram-container">
+        <div class="mermaid">
+flowchart TD
+    A[User loads demo.html] --> B[Bot displays welcome message]
+    B --> C[User types message in input field]
+    C --> D{User clicks Send OR Presses Enter?}
+    D -- No --> C
+    D -- Yes --> E{Is input string empty?}
+    E -- Yes --> C
+    E -- No --> F[Render User Message Bubble]
+    F --> G[Trigger 800ms Timeout]
+    G --> H[Convert input to lowercase]
+    H --> I{Includes 'hello' or 'hi'?}
+    I -- Yes --> J[Set botReply = Greeting String]
+    I -- No --> K{Includes 'price' or 'pricing'?}
+    K -- Yes --> L[Set botReply = Pricing Info String]
+    K -- No --> M[Set botReply = Default Fallback String]
+    J --> N[Render Bot Message Bubble]
+    L --> N
+    M --> N
+    N --> O[Auto-scroll chat to bottom]
+    O --> C
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h3>4.2 Contact Form Submission Flow</h3>
+    <p>This diagram details the validation and submission simulation process on <code>contact.html</code>.</p>
+    <div class="diagram-container">
+        <div class="mermaid">
+flowchart TD
+    A[User fills out Name, Email, Message] --> B[User clicks Submit Button]
+    B --> C[JS 'submit' Event Listener triggered]
+    C --> D[Execute event.preventDefault]
+    D --> E[Fetch values from DOM inputs]
+    E --> F{Validate: Are all fields NOT empty?}
+    F -- No False --> G[Trigger Alert: Please fill in all fields]
+    G --> A
+    F -- Yes True --> H[Trigger Alert: Message sent successfully!]
+    H --> I[Execute contactForm.reset]
+    I --> J[Form inputs cleared, process ends]
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>5. Page-by-Page Specifications</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Page</th>
+                <th>File</th>
+                <th>Core Components</th>
+                <th>Behavior</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Home</strong></td>
+                <td><code>index.html</code></td>
+                <td>Hero Section, Feature Cards, CTA</td>
+                <td>Static display. Buttons route to demo/pricing.</td>
+            </tr>
+            <tr>
+                <td><strong>About</strong></td>
+                <td><code>about.html</code></td>
+                <td>Avatar, Bio, Skill Tags, Mission</td>
+                <td>Flexbox layout shifts to column on mobile.</td>
+            </tr>
+            <tr>
+                <td><strong>Services</strong></td>
+                <td><code>services.html</code></td>
+                <td>3 Service Cards</td>
+                <td>CSS Hover effects (translateY applied).</td>
+            </tr>
+            <tr>
+                <td><strong>Demo</strong></td>
+                <td><code>demo.html</code></td>
+                <td>Chat Window, Input, Send Btn</td>
+                <td>Dynamic JS DOM injection. Auto-scrolls.</td>
+            </tr>
+            <tr>
+                <td><strong>Pricing</strong></td>
+                <td><code>pricing.html</code></td>
+                <td>3 Tier Cards, Badge</td>
+                <td>Middle card scaled via CSS transform.</td>
+            </tr>
+            <tr>
+                <td><strong>Contact</strong></td>
+                <td><code>contact.html</code></td>
+                <td>Form (3 inputs), Submit Button</td>
+                <td>JS intercepts submit, validates, alerts.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>6. UI/UX Design System</h2>
+    <p>The visual consistency is maintained through CSS Custom Properties defined in the <code>:root</code> selector.</p>
+    <ul>
+        <li><strong>Color Palette:</strong> Primary (<code>#0f172a</code>), Secondary (<code>#2563eb</code>), Accent (<code>#06b6d4</code>).</li>
+        <li><strong>Typography:</strong> System font stack for fast loading. Line height set to 1.6 for accessibility.</li>
+        <li><strong>Responsive Breakpoint:</strong> Single breakpoint at 768px to collapse navigation and stack grids.</li>
+    </ul>
+
+    <h2>7. Testing & Quality Assurance</h2>
+    <ol>
+        <li><strong>Cross-Browser:</strong> Tested on Chrome, Firefox, Safari, and Edge.</li>
+        <li><strong>Responsive:</strong> Simulated viewports (Mobile 375px, Tablet 768px, Desktop 1440px).</li>
+        <li><strong>Functional:</strong> Verified empty input handling, case insensitivity in chatbot, and form clearing mechanisms.</li>
+        <li><strong>Link Integrity:</strong> Audited all anchor tags to confirm zero 404 errors locally.</li>
+    </ol>
+
+    <h2>8. Limitations & Future Enhancements</h2>
+    <p><strong>Current Limitations:</strong> No persistent storage (chat history lost on refresh). No backend (contact form simulates action). Rigid chatbot logic (relies on basic string matching).</p>
+    <p><strong>Future Enhancements:</strong> Integrate <code>localStorage</code>. Connect form to EmailJS or Node.js backend. Replace <code>if/else</code> chatbot with OpenAI API.</p>
+
+    <!-- Initialize Mermaid after DOM loads -->
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base', 
+            themeVariables: { 
+                primaryColor: '#e0f2fe', 
+                primaryTextColor: '#0f172a',
+                primaryBorderColor: '#2563eb',
+                lineColor: '#2563eb'
+            } 
+        });
+    </script>
+</body>
+</html>
